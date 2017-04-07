@@ -1,0 +1,2662 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/jonschlinkert/micromatch">micromatch (v2.3.11)</a>
+</h1>
+<h4>Glob matching for javascript/node.js. A drop-in replacement and faster alternative to minimatch and multimatch.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.micromatch">module micromatch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.any">
+            function <span class="apidocSignatureSpan">micromatch.</span>any
+            <span class="apidocSignatureSpan">(fp, patterns, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.braceExpand">
+            function <span class="apidocSignatureSpan">micromatch.</span>braceExpand
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.braces">
+            function <span class="apidocSignatureSpan">micromatch.</span>braces
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.contains">
+            function <span class="apidocSignatureSpan">micromatch.</span>contains
+            <span class="apidocSignatureSpan">(fp, pattern, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.expand">
+            function <span class="apidocSignatureSpan">micromatch.</span>expand
+            <span class="apidocSignatureSpan">(pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.filter">
+            function <span class="apidocSignatureSpan">micromatch.</span>filter
+            <span class="apidocSignatureSpan">(patterns, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob">
+            function <span class="apidocSignatureSpan">micromatch.</span>glob
+            <span class="apidocSignatureSpan">(pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.isMatch">
+            function <span class="apidocSignatureSpan">micromatch.</span>isMatch
+            <span class="apidocSignatureSpan">(fp, pattern, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.makeRe">
+            function <span class="apidocSignatureSpan">micromatch.</span>makeRe
+            <span class="apidocSignatureSpan">(glob, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.match">
+            function <span class="apidocSignatureSpan">micromatch.</span>match
+            <span class="apidocSignatureSpan">(files, pattern, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.matchKeys">
+            function <span class="apidocSignatureSpan">micromatch.</span>matchKeys
+            <span class="apidocSignatureSpan">(obj, glob, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.matcher">
+            function <span class="apidocSignatureSpan">micromatch.</span>matcher
+            <span class="apidocSignatureSpan">(pattern, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">micromatch.</span>glob.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">micromatch.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.micromatch.glob">module micromatch.glob</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.glob">
+            function <span class="apidocSignatureSpan">micromatch.</span>glob
+            <span class="apidocSignatureSpan">(pattern, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.micromatch.glob.prototype">module micromatch.glob.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype._replace">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>_replace
+            <span class="apidocSignatureSpan">(a, b, escape)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.braces">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>braces
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.brackets">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>brackets
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.escape">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>escape
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.extglob">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>extglob
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.init">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>init
+            <span class="apidocSignatureSpan">(pattern)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.isNegated">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>isNegated
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.parse">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>parse
+            <span class="apidocSignatureSpan">(pattern)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.track">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>track
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.glob.prototype.unescape">
+            function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>unescape
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.micromatch.utils">module micromatch.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.arrayify">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>arrayify
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.braces">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>braces
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.brackets">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>brackets
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.cache">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>cache
+            <span class="apidocSignatureSpan">(fn, str, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.diff">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>diff
+            <span class="apidocSignatureSpan">(arr, arrays)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.escapePath">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>escapePath
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.escapeRe">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>escapeRe
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.extglob">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>extglob
+            <span class="apidocSignatureSpan">(str, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.filename">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>filename
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.hasFilename">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>hasFilename
+            <span class="apidocSignatureSpan">(re)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.hasPath">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>hasPath
+            <span class="apidocSignatureSpan">(pattern, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.isExtglob">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>isExtglob
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.isGlob">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>isGlob
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.isPath">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>isPath
+            <span class="apidocSignatureSpan">(pattern, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.matchPath">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>matchPath
+            <span class="apidocSignatureSpan">(pattern, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.normalize">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>normalize
+            <span class="apidocSignatureSpan">(str, stripTrailing)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.omit">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>omit
+            <span class="apidocSignatureSpan">(obj, keys)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.parseGlob">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>parseGlob
+            <span class="apidocSignatureSpan">(glob)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.typeOf">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>typeOf
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.unescapeGlob">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>unescapeGlob
+            <span class="apidocSignatureSpan">(fp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.unique">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>unique
+            <span class="apidocSignatureSpan">(arr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.utils.unixify">
+            function <span class="apidocSignatureSpan">micromatch.utils.</span>unixify
+            <span class="apidocSignatureSpan">(fp, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.micromatch" id="apidoc.module.micromatch">module micromatch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.any" id="apidoc.element.micromatch.any">
+        function <span class="apidocSignatureSpan">micromatch.</span>any
+        <span class="apidocSignatureSpan">(fp, patterns, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function any(fp, patterns, opts) {
+  if (!Array.isArray(patterns) &amp;&amp; typeof patterns !== 'string') {
+    throw new TypeError(msg('any', 'patterns', 'a string or array'));
+  }
+
+  patterns = utils.arrayify(patterns);
+  var len = patterns.length;
+
+  fp = utils.unixify(fp, opts);
+  while (len--) {
+    var isMatch = matcher(patterns[len], opts);
+    if (isMatch(fp)) {
+      return true;
+    }
+  }
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Features
+
+* [Drop-in replacement](#switch-from-minimatch) for [minimatch](https://github.com/isaacs/minimatch) and [multimatch](https://github
+.com/sindresorhus/multimatch)
+* Built-in support for multiple glob patterns, like `['foo/*.js', '!bar.js']`
+* [Brace Expansion](https://github.com/jonschlinkert/braces) (`foo/bar-{1..5}.md`, `one/{two,three}/four.md`)
+* Typical glob patterns, like `**/*`, `a/b/*.js`, or `['foo/*.js', '!bar.js']`
+* Methods like `.isMatch()`, `.contains()` and `.<span class="apidocCodeKeywordSpan">any</span>()`
+
+**Extended globbing features:**
+
+* Logical `OR` (`foo/bar/(abc|xyz).js`)
+* Regex character classes (`foo/bar/baz-[1-5].js`)
+* POSIX [bracket expressions](https://github.com/jonschlinkert/expand-brackets) (`**/[[:alpha:][:digit:]]/`)
+* [extglobs](https://github.com/jonschlinkert/extglob) (`**/+(x|y)`, `!(a|b)`, etc).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.braceExpand" id="apidoc.element.micromatch.braceExpand">
+        function <span class="apidocSignatureSpan">micromatch.</span>braceExpand
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">braceExpand = function (str, options) {
+  if (typeof str !== 'string') {
+    throw new Error('braces expects a string');
+  }
+  return braces(str, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.braces" id="apidoc.element.micromatch.braces">
+        function <span class="apidocSignatureSpan">micromatch.</span>braces
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">braces = function (str, options) {
+  if (typeof str !== 'string') {
+    throw new Error('braces expects a string');
+  }
+  return braces(str, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Extended globs
+ */
+
+// expand braces, e.g `{1..5}`
+glob.track('before braces');
+if (tok.is.braces) {
+  glob.<span class="apidocCodeKeywordSpan">braces</span>();
+}
+glob.track('after braces');
+
+// expand extglobs, e.g `foo/!(a|b)`
+glob.track('before extglob');
+if (tok.is.extglob) {
+  glob.extglob();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.contains" id="apidoc.element.micromatch.contains">
+        function <span class="apidocSignatureSpan">micromatch.</span>contains
+        <span class="apidocSignatureSpan">(fp, pattern, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function contains(fp, pattern, opts) {
+  if (typeof fp !== 'string') {
+    throw new TypeError(msg('contains', 'pattern', 'a string'));
+  }
+
+  opts = opts || {};
+  opts.contains = (pattern !== '');
+  fp = utils.unixify(fp, opts);
+
+  if (opts.contains &amp;&amp; !utils.isGlob(pattern)) {
+    return fp.indexOf(pattern) !== -1;
+  }
+  return matcher(pattern, opts)(fp);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Features
+
+* [Drop-in replacement](#switch-from-minimatch) for [minimatch](https://github.com/isaacs/minimatch) and [multimatch](https://github
+.com/sindresorhus/multimatch)
+* Built-in support for multiple glob patterns, like `['foo/*.js', '!bar.js']`
+* [Brace Expansion](https://github.com/jonschlinkert/braces) (`foo/bar-{1..5}.md`, `one/{two,three}/four.md`)
+* Typical glob patterns, like `**/*`, `a/b/*.js`, or `['foo/*.js', '!bar.js']`
+* Methods like `.isMatch()`, `.<span class="apidocCodeKeywordSpan">contains</span>()` and `.any()`
+
+**Extended globbing features:**
+
+* Logical `OR` (`foo/bar/(abc|xyz).js`)
+* Regex character classes (`foo/bar/baz-[1-5].js`)
+* POSIX [bracket expressions](https://github.com/jonschlinkert/expand-brackets) (`**/[[:alpha:][:digit:]]/`)
+* [extglobs](https://github.com/jonschlinkert/extglob) (`**/+(x|y)`, `!(a|b)`, etc).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.expand" id="apidoc.element.micromatch.expand">
+        function <span class="apidocSignatureSpan">micromatch.</span>expand
+        <span class="apidocSignatureSpan">(pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function expand(pattern, options) {
+  if (typeof pattern !== 'string') {
+    throw new TypeError('micromatch.expand(): argument should be a string.');
+  }
+
+  var glob = new Glob(pattern, options || {});
+  var opts = glob.options;
+
+  if (!utils.isGlob(pattern)) {
+    glob.pattern = glob.pattern.replace(/([\/.])/g, '\\$1');
+    return glob;
+  }
+
+  glob.pattern = glob.pattern.replace(/(\+)(?!\()/g, '\\$1');
+  glob.pattern = glob.pattern.split('$').join('\\$');
+
+  if (typeof opts.braces !== 'boolean' &amp;&amp; typeof opts.nobraces !== 'boolean') {
+    opts.braces = true;
+  }
+
+  if (glob.pattern === '.*') {
+    return {
+      pattern: '\\.' + star,
+      tokens: tok,
+      options: opts
+    };
+  }
+
+  if (glob.pattern === '*') {
+    return {
+      pattern: oneStar(opts.dot),
+      tokens: tok,
+      options: opts
+    };
+  }
+
+  // parse the glob pattern into tokens
+  glob.parse();
+  var tok = glob.tokens;
+  tok.is.negated = opts.negated;
+
+  // dotfile handling
+  if ((opts.dotfiles === true || tok.is.dotfile) &amp;&amp; opts.dot !== false) {
+    opts.dotfiles = true;
+    opts.dot = true;
+  }
+
+  if ((opts.dotdirs === true || tok.is.dotdir) &amp;&amp; opts.dot !== false) {
+    opts.dotdirs = true;
+    opts.dot = true;
+  }
+
+  // check for braces with a dotfile pattern
+  if (/[{,]\./.test(glob.pattern)) {
+    opts.makeRe = false;
+    opts.dot = true;
+  }
+
+  if (opts.nonegate !== true) {
+    opts.negated = glob.negated;
+  }
+
+  // if the leading character is a dot or a slash, escape it
+  if (glob.pattern.charAt(0) === '.' &amp;&amp; glob.pattern.charAt(1) !== '/') {
+    glob.pattern = '\\' + glob.pattern;
+  }
+
+<span class="apidocCodeCommentSpan">  /**
+   * Extended globs
+   */
+</span>
+  // expand braces, e.g `{1..5}`
+  glob.track('before braces');
+  if (tok.is.braces) {
+    glob.braces();
+  }
+  glob.track('after braces');
+
+  // expand extglobs, e.g `foo/!(a|b)`
+  glob.track('before extglob');
+  if (tok.is.extglob) {
+    glob.extglob();
+  }
+  glob.track('after extglob');
+
+  // expand brackets, e.g `[[:alpha:]]`
+  glob.track('before brackets');
+  if (tok.is.brackets) {
+    glob.brackets();
+  }
+  glob.track('after brackets');
+
+  // special patterns
+  glob._replace('[!', '[^');
+  glob._replace('(?', '(%~');
+  glob._replace(/\[\]/, '\\[\\]');
+  glob._replace('/[', '/' + (opts.dot ? dotfiles : nodot) + '[', true);
+  glob._replace('/?', '/' + (opts.dot ? dotfiles : nodot) + '[^/]', true);
+  glob._replace('/.', '/(?=.)\\.', true);
+
+  // windows drives
+  glob._replace(/^(\w):([\\\/]+?)/gi, '(?=.)$1:$2', true);
+
+  // negate slashes in exclusion ranges
+  if (glob.pattern.indexOf('[^') !== -1) {
+    glob.pattern = negateSlash(glob.pattern);
+  }
+
+  if (opts.globstar !== false &amp;&amp; glob.pattern === '**') {
+    glob.pattern = globstar(opts.dot);
+
+  } else {
+    glob.pattern = balance(glob.pattern, '[', ']');
+    glob.escape(glob.pattern);
+
+    // if the pattern has `**`
+    if (tok.is.globstar) {
+      glob.pattern = collapse(glob.pattern, '/**');
+      glob.pattern = collapse(glob.pattern, '**/');
+      glob._replace('/**/', '(?:/' + globstar(opts.dot) + '/|/)', true);
+      glob._replace(/\*{2,}/g, '**');
+
+      // 'foo/*'
+      glob._replace(/(\w+)\*(?!\/)/g, '$1[^/]*?', true);
+      glob._replace(/\*\*\/\*(\w)/g, globstar(opts.dot) + '\\/' + (opts.dot ? dotfiles : nodot) + '[^/]*?$1', true);
+
+      if (opts.dot !== true) {
+        glob._replace(/\*\*\/(.)/g, '(?:**\\/|)$1');
+      }
+
+      // 'foo/**' or '{**,*}', but not 'foo**'
+      if (tok.path.dirname !== '' || /,\*\*|\*\*,/.test(glob.orig)) {
+        glob._replace('**', globstar(opts.dot), true);
+      }
+    }
+
+    // ends with /*
+    glob._replace(/\/\*$/, '\\/' + oneStar(opts.dot), true);
+    // ends with *, no slashes
+    glob._replace(/(?!\/)\*$/, star, true);
+    // has 'n*.' (partial wildcard w/ file extension)
+    glob._replace(/([^\/]+)\*/, '$1' + oneStar(true), true);
+    // has '*'
+    glob._replace('*', oneStar(opts.dot), true);
+    glob._replace('?.', '?\\.', true);
+    glob._replace('?:', '?:', true);
+
+    glob._replace(/\?+/g, function(match) {
+      var len = match.length;
+      if (len === 1) {
+        return qmark;
+      }
+      return qmark + '{' ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### .expand
+
+Returns an object with a regex-compatible string and tokens.
+
+```js
+mm.<span class="apidocCodeKeywordSpan">expand</span>('*.js');
+
+// when `track` is enabled (for debugging), the `history` array is used
+// to record each mutation to the glob pattern as it's converted to regex
+{ options: { track: false, dot: undefined, makeRe: true, negated: false },
+pattern: '(.*\\/|^)bar\\/(?:(?!(?:^|\\/)\\.).)*?',
+history: [],
+tokens:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.filter" id="apidoc.element.micromatch.filter">
+        function <span class="apidocSignatureSpan">micromatch.</span>filter
+        <span class="apidocSignatureSpan">(patterns, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filter(patterns, opts) {
+  if (!Array.isArray(patterns) &amp;&amp; typeof patterns !== 'string') {
+    throw new TypeError(msg('filter', 'patterns', 'a string or array'));
+  }
+
+  patterns = utils.arrayify(patterns);
+  var len = patterns.length, i = 0;
+  var patternMatchers = Array(len);
+  while (i &lt; len) {
+    patternMatchers[i] = matcher(patterns[i++], opts);
+  }
+
+  return function(fp) {
+    if (fp == null) return [];
+    var len = patternMatchers.length, i = 0;
+    var res = true;
+
+    fp = utils.unixify(fp, opts);
+    while (i &lt; len) {
+      var fn = patternMatchers[i++];
+      if (!fn(fp)) {
+        res = false;
+        break;
+      }
+    }
+    return res;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `patterns` **{String|Array}**:
+
+**Examples**
+
+Single glob:
+
+```js
+var fn = mm.<span class="apidocCodeKeywordSpan">filter</span>('*.md');
+['a.js', 'b.txt', 'c.md'].filter(fn);
+//=&gt; ['c.md']
+
+var fn = mm.filter('[a-c]');
+['a', 'b', 'c', 'd', 'e'].filter(fn);
+//=&gt; ['a', 'b', 'c']
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob" id="apidoc.element.micromatch.glob">
+        function <span class="apidocSignatureSpan">micromatch.</span>glob
+        <span class="apidocSignatureSpan">(pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Glob(pattern, options) {
+  if (!(this instanceof Glob)) {
+    return new Glob(pattern, options);
+  }
+  this.options = options || {};
+  this.pattern = pattern;
+  this.history = [];
+  this.tokens = {};
+  this.init(pattern);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.isMatch" id="apidoc.element.micromatch.isMatch">
+        function <span class="apidocSignatureSpan">micromatch.</span>isMatch
+        <span class="apidocSignatureSpan">(fp, pattern, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isMatch(fp, pattern, opts) {
+  if (typeof fp !== 'string') {
+    throw new TypeError(msg('isMatch', 'filepath', 'a string'));
+  }
+
+  fp = utils.unixify(fp, opts);
+  if (utils.typeOf(pattern) === 'object') {
+    return matcher(fp, pattern);
+  }
+  return matcher(pattern, opts)(fp);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&gt; Glob matching for javascript/node.js. A drop-in replacement and faster alternative to minimatch and multimatch.
+
+Micromatch supports all of the same matching features as [minimatch](https://github.com/isaacs/minimatch) and [multimatch](https
+://github.com/sindresorhus/multimatch).
+
+* [mm()](#usage) is the same as [multimatch()](https://github.com/sindresorhus/multimatch)
+* [mm.match()](#match) is the same as [minimatch.match()](https://github.com/isaacs/minimatch)
+* use [mm.<span class="apidocCodeKeywordSpan">isMatch</span>()](#ismatch) instead of [minimatch()](https://github.com/isaacs/minimatch
+)
+
+## Install
+
+Install with [npm](https://www.npmjs.com/):
+
+```sh
+$ npm install --save micromatch
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.makeRe" id="apidoc.element.micromatch.makeRe">
+        function <span class="apidocSignatureSpan">micromatch.</span>makeRe
+        <span class="apidocSignatureSpan">(glob, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function makeRe(glob, opts) {
+  if (utils.typeOf(glob) !== 'string') {
+    throw new Error(msg('makeRe', 'glob', 'a string'));
+  }
+  return utils.cache(toRegex, glob, opts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### .makeRe
+
+Create a regular expression for matching file paths based on the given pattern:
+
+```js
+mm.<span class="apidocCodeKeywordSpan">makeRe</span>('*.js');
+//=&gt; /^(?:(?!\.)(?=.)[^/]*?\.js)$/
+```
+
+## Options
+
+### options.unixify
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.match" id="apidoc.element.micromatch.match">
+        function <span class="apidocSignatureSpan">micromatch.</span>match
+        <span class="apidocSignatureSpan">(files, pattern, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function match(files, pattern, opts) {
+  if (utils.typeOf(files) !== 'string' &amp;&amp; !Array.isArray(files)) {
+    throw new Error(msg('match', 'files', 'a string or array'));
+  }
+
+  files = utils.arrayify(files);
+  opts = opts || {};
+
+  var negate = opts.negate || false;
+  var orig = pattern;
+
+  if (typeof pattern === 'string') {
+    negate = pattern.charAt(0) === '!';
+    if (negate) {
+      pattern = pattern.slice(1);
+    }
+
+    // we need to remove the character regardless,
+    // so the above logic is still needed
+    if (opts.nonegate === true) {
+      negate = false;
+    }
+  }
+
+  var _isMatch = matcher(pattern, opts);
+  var len = files.length, i = 0;
+  var res = [];
+
+  while (i &lt; len) {
+    var file = files[i++];
+    var fp = utils.unixify(file, opts);
+
+    if (!_isMatch(fp)) { continue; }
+    res.push(fp);
+  }
+
+  if (res.length === 0) {
+    if (opts.failglob === true) {
+      throw new Error('micromatch.match() found no matches for: "' + orig + '".');
+    }
+
+    if (opts.nonull || opts.nullglob) {
+      res.push(utils.unescapeGlob(orig));
+    }
+  }
+
+  // if `negate` was defined, diff negated files
+  if (negate) { res = utils.diff(files, res); }
+
+  // if `ignore` was defined, diff ignored filed
+  if (opts.ignore &amp;&amp; opts.ignore.length) {
+    pattern = opts.ignore;
+    opts = utils.omit(opts, ['ignore']);
+    res = utils.diff(res, micromatch(res, pattern, opts));
+  }
+
+  if (opts.nodupes) {
+    return utils.unique(res);
+  }
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+# micromatch [![NPM version](https://img.shields.io/npm/v/micromatch.svg?style=flat)](https://www.npmjs.com/package/micromatch) [![
+NPM downloads](https://img.shields.io/npm/dm/micromatch.svg?style=flat)](https://npmjs.org/package/micromatch) [![Build Status](
+https://img.shields.io/travis/jonschlinkert/micromatch.svg?style=flat)](https://travis-ci.org/jonschlinkert/micromatch)
+
+&gt; Glob matching for javascript/node.js. A drop-in replacement and faster alternative to minimatch and multimatch.
+
+Micromatch supports all of the same matching features as [minimatch](https://github.com/isaacs/minimatch) and [multimatch](https
+://github.com/sindresorhus/multimatch).
+
+* [mm()](#usage) is the same as [multimatch()](https://github.com/sindresorhus/multimatch)
+* [mm.<span class="apidocCodeKeywordSpan">match</span>()](#match) is the same as [minimatch.match()](https://github.com/isaacs/minimatch
+)
+* use [mm.isMatch()](#ismatch) instead of [minimatch()](https://github.com/isaacs/minimatch)
+
+## Install
+
+Install with [npm](https://www.npmjs.com/):
+
+```sh
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.matchKeys" id="apidoc.element.micromatch.matchKeys">
+        function <span class="apidocSignatureSpan">micromatch.</span>matchKeys
+        <span class="apidocSignatureSpan">(obj, glob, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function matchKeys(obj, glob, options) {
+  if (utils.typeOf(obj) !== 'object') {
+    throw new TypeError(msg('matchKeys', 'first argument', 'an object'));
+  }
+
+  var fn = matcher(glob, options);
+  var res = {};
+
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key) &amp;&amp; fn(key)) {
+      res[key] = obj[key];
+    }
+  }
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.matcher" id="apidoc.element.micromatch.matcher">
+        function <span class="apidocSignatureSpan">micromatch.</span>matcher
+        <span class="apidocSignatureSpan">(pattern, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function matcher(pattern, opts) {
+  // pattern is a function
+  if (typeof pattern === 'function') {
+    return pattern;
+  }
+  // pattern is a regex
+  if (pattern instanceof RegExp) {
+    return function(fp) {
+      return pattern.test(fp);
+    };
+  }
+
+  if (typeof pattern !== 'string') {
+    throw new TypeError(msg('matcher', 'pattern', 'a string, regex, or function'));
+  }
+
+  // strings, all the way down...
+  pattern = utils.unixify(pattern, opts);
+
+  // pattern is a non-glob string
+  if (!utils.isGlob(pattern)) {
+    return utils.matchPath(pattern, opts);
+  }
+  // pattern is a glob string
+  var re = makeRe(pattern, opts);
+
+  // `matchBase` is defined
+  if (opts &amp;&amp; opts.matchBase) {
+    return utils.hasFilename(re, opts);
+  }
+  // `matchBase` is not defined
+  return function(fp) {
+    fp = utils.unixify(fp, opts);
+    return re.test(fp);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `glob/string`
+* `regex`
+* `function`
+
+**Example**
+
+```js
+var isMatch = mm.<span class="apidocCodeKeywordSpan">matcher</span>('*.md');
+var files = [];
+
+['a.md', 'b.txt', 'c.md'].forEach(function(fp) {
+  if (isMatch(fp)) {
+    files.push(fp);
+  }
+});
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.micromatch.glob" id="apidoc.module.micromatch.glob">module micromatch.glob</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.glob" id="apidoc.element.micromatch.glob.glob">
+        function <span class="apidocSignatureSpan">micromatch.</span>glob
+        <span class="apidocSignatureSpan">(pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Glob(pattern, options) {
+  if (!(this instanceof Glob)) {
+    return new Glob(pattern, options);
+  }
+  this.options = options || {};
+  this.pattern = pattern;
+  this.history = [];
+  this.tokens = {};
+  this.init(pattern);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.micromatch.glob.prototype" id="apidoc.module.micromatch.glob.prototype">module micromatch.glob.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype._replace" id="apidoc.element.micromatch.glob.prototype._replace">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>_replace
+        <span class="apidocSignatureSpan">(a, b, escape)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_replace = function (a, b, escape) {
+  this.track('before (find): "' + a + '" (replace with): "' + b + '"');
+  if (escape) b = esc(b);
+  if (a &amp;&amp; b &amp;&amp; typeof a === 'string') {
+    this.pattern = this.pattern.split(a).join(b);
+  } else {
+    this.pattern = this.pattern.replace(a, b);
+  }
+  this.track('after');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+glob.track('before brackets');
+if (tok.is.brackets) {
+  glob.brackets();
+}
+glob.track('after brackets');
+
+// special patterns
+glob.<span class="apidocCodeKeywordSpan">_replace</span>('[!', '[^');
+glob._replace('(?', '(%~');
+glob._replace(/\[\]/, '\\[\\]');
+glob._replace('/[', '/' + (opts.dot ? dotfiles : nodot) + '[', true);
+glob._replace('/?', '/' + (opts.dot ? dotfiles : nodot) + '[^/]', true);
+glob._replace('/.', '/(?=.)\\.', true);
+
+// windows drives
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.braces" id="apidoc.element.micromatch.glob.prototype.braces">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>braces
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">braces = function () {
+  if (this.options.nobraces !== true &amp;&amp; this.options.nobrace !== true) {
+    // naive/fast check for imbalanced characters
+    var a = this.pattern.match(/[\{\(\[]/g);
+    var b = this.pattern.match(/[\}\)\]]/g);
+
+    // if imbalanced, don't optimize the pattern
+    if (a &amp;&amp; b &amp;&amp; (a.length !== b.length)) {
+      this.options.makeRe = false;
+    }
+
+    // expand brace patterns and join the resulting array
+    var expanded = utils.braces(this.pattern, this.options);
+    this.pattern = expanded.join('|');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Extended globs
+ */
+
+// expand braces, e.g `{1..5}`
+glob.track('before braces');
+if (tok.is.braces) {
+  glob.<span class="apidocCodeKeywordSpan">braces</span>();
+}
+glob.track('after braces');
+
+// expand extglobs, e.g `foo/!(a|b)`
+glob.track('before extglob');
+if (tok.is.extglob) {
+  glob.extglob();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.brackets" id="apidoc.element.micromatch.glob.prototype.brackets">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>brackets
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">brackets = function () {
+  if (this.options.nobrackets !== true) {
+    this.pattern = utils.brackets(this.pattern);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  glob.extglob();
+}
+glob.track('after extglob');
+
+// expand brackets, e.g `[[:alpha:]]`
+glob.track('before brackets');
+if (tok.is.brackets) {
+  glob.<span class="apidocCodeKeywordSpan">brackets</span>();
+}
+glob.track('after brackets');
+
+// special patterns
+glob._replace('[!', '[^');
+glob._replace('(?', '(%~');
+glob._replace(/\[\]/, '\\[\\]');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.escape" id="apidoc.element.micromatch.glob.prototype.escape">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>escape
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escape = function (str) {
+  this.track('before escape: ');
+  var re = /["\\](['"]?[^"'\\]['"]?)/g;
+
+  this.pattern = str.replace(re, function($0, $1) {
+    var o = chars.ESC;
+    var ch = o &amp;&amp; o[$1];
+    if (ch) {
+      return ch;
+    }
+    if (/[a-z]/i.test($0)) {
+      return $0.split('\\').join('');
+    }
+    return $0;
+  });
+
+  this.track('after escape: ');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  if (opts.globstar !== false &amp;&amp; glob.pattern === '**') {
+glob.pattern = globstar(opts.dot);
+
+  } else {
+glob.pattern = balance(glob.pattern, '[', ']');
+glob.<span class="apidocCodeKeywordSpan">escape</span>(glob.pattern);
+
+// if the pattern has `**`
+if (tok.is.globstar) {
+  glob.pattern = collapse(glob.pattern, '/**');
+  glob.pattern = collapse(glob.pattern, '**/');
+  glob._replace('/**/', '(?:/' + globstar(opts.dot) + '/|/)', true);
+  glob._replace(/\*{2,}/g, '**');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.extglob" id="apidoc.element.micromatch.glob.prototype.extglob">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>extglob
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extglob = function () {
+  if (this.options.noextglob === true) return;
+
+  if (utils.isExtglob(this.pattern)) {
+    this.pattern = utils.extglob(this.pattern, {escape: true});
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  glob.braces();
+}
+glob.track('after braces');
+
+// expand extglobs, e.g `foo/!(a|b)`
+glob.track('before extglob');
+if (tok.is.extglob) {
+  glob.<span class="apidocCodeKeywordSpan">extglob</span>();
+}
+glob.track('after extglob');
+
+// expand brackets, e.g `[[:alpha:]]`
+glob.track('before brackets');
+if (tok.is.brackets) {
+  glob.brackets();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.init" id="apidoc.element.micromatch.glob.prototype.init">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>init
+        <span class="apidocSignatureSpan">(pattern)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (pattern) {
+  this.orig = pattern;
+  this.negated = this.isNegated();
+  this.options.track = this.options.track || false;
+  this.options.makeRe = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!(this instanceof Glob)) {
+    return new Glob(pattern, options);
+  }
+  this.options = options || {};
+  this.pattern = pattern;
+  this.history = [];
+  this.tokens = {};
+  this.<span class="apidocCodeKeywordSpan">init</span>(pattern);
+};
+
+/**
+ * Initialize defaults
+ */
+
+Glob.prototype.init = function(pattern) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.isNegated" id="apidoc.element.micromatch.glob.prototype.isNegated">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>isNegated
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isNegated = function () {
+  if (this.pattern.charCodeAt(0) === 33 /* '!' */) {
+    this.pattern = this.pattern.slice(1);
+    return true;
+  }
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Initialize defaults
+*/
+
+Glob.prototype.init = function(pattern) {
+ this.orig = pattern;
+ this.negated = this.<span class="apidocCodeKeywordSpan">isNegated</span>();
+ this.options.track = this.options.track || false;
+ this.options.makeRe = true;
+};
+
+/**
+* Push a change into `glob.history`. Useful
+* for debugging.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.parse" id="apidoc.element.micromatch.glob.prototype.parse">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>parse
+        <span class="apidocSignatureSpan">(pattern)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (pattern) {
+  this.tokens = utils.parseGlob(pattern || this.pattern, true);
+  return this.tokens;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    pattern: oneStar(opts.dot),
+    tokens: tok,
+    options: opts
+  };
+}
+
+// parse the glob pattern into tokens
+glob.<span class="apidocCodeKeywordSpan">parse</span>();
+var tok = glob.tokens;
+tok.is.negated = opts.negated;
+
+// dotfile handling
+if ((opts.dotfiles === true || tok.is.dotfile) &amp;&amp; opts.dot !== false) {
+  opts.dotfiles = true;
+  opts.dot = true;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.track" id="apidoc.element.micromatch.glob.prototype.track">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>track
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">track = function (msg) {
+  if (this.options.track) {
+    this.history.push({msg: msg, pattern: this.pattern});
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+/**
+ * Extended globs
+ */
+
+// expand braces, e.g `{1..5}`
+glob.<span class="apidocCodeKeywordSpan">track</span>('before braces');
+if (tok.is.braces) {
+  glob.braces();
+}
+glob.track('after braces');
+
+// expand extglobs, e.g `foo/!(a|b)`
+glob.track('before extglob');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.glob.prototype.unescape" id="apidoc.element.micromatch.glob.prototype.unescape">
+        function <span class="apidocSignatureSpan">micromatch.glob.prototype.</span>unescape
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unescape = function (str) {
+  var re = /__([A-Z]+)_([A-Z]+)__/g;
+  this.pattern = str.replace(re, function($0, $1) {
+    return chars[$1][$0];
+  });
+  this.pattern = unesc(this.pattern);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // '///' =&gt; '\/'
+  glob._replace(/\/+/g, '\\/');
+  // '\\\\\\' =&gt; '\\'
+  glob._replace(/\\{2,}/g, '\\');
+}
+
+// unescape previously escaped patterns
+glob.<span class="apidocCodeKeywordSpan">unescape</span>(glob.pattern);
+glob._replace('__UNESC_STAR__', '*');
+
+// escape dots that follow qmarks
+glob._replace('?.', '?\\.');
+
+// remove unnecessary slashes in character classes
+glob._replace('[^\\/]', qmark);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.micromatch.utils" id="apidoc.module.micromatch.utils">module micromatch.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.arrayify" id="apidoc.element.micromatch.utils.arrayify">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>arrayify
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function arrayify(val) {
+  return !Array.isArray(val)
+    ? [val]
+    : val;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+function match(files, pattern, opts) {
+if (utils.typeOf(files) !== 'string' &amp;&amp; !Array.isArray(files)) {
+  throw new Error(msg('match', 'files', 'a string or array'));
+}
+
+files = utils.<span class="apidocCodeKeywordSpan">arrayify</span>(files);
+opts = opts || {};
+
+var negate = opts.negate || false;
+var orig = pattern;
+
+if (typeof pattern === 'string') {
+  negate = pattern.charAt(0) === '!';
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.braces" id="apidoc.element.micromatch.utils.braces">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>braces
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">braces = function (str, options) {
+  if (typeof str !== 'string') {
+    throw new Error('braces expects a string');
+  }
+  return braces(str, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Extended globs
+ */
+
+// expand braces, e.g `{1..5}`
+glob.track('before braces');
+if (tok.is.braces) {
+  glob.<span class="apidocCodeKeywordSpan">braces</span>();
+}
+glob.track('after braces');
+
+// expand extglobs, e.g `foo/!(a|b)`
+glob.track('before extglob');
+if (tok.is.extglob) {
+  glob.extglob();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.brackets" id="apidoc.element.micromatch.utils.brackets">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>brackets
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function brackets(str) {
+  if (!isPosixBracket(str)) {
+    return str;
+  }
+
+  var negated = false;
+  if (str.indexOf('[^') !== -1) {
+    negated = true;
+    str = str.split('[^').join('[');
+  }
+  if (str.indexOf('[!') !== -1) {
+    negated = true;
+    str = str.split('[!').join('[');
+  }
+
+  var a = str.split('[');
+  var b = str.split(']');
+  var imbalanced = a.length !== b.length;
+
+  var parts = str.split(/(?::\]\[:|\[?\[:|:\]\]?)/);
+  var len = parts.length, i = 0;
+  var end = '', beg = '';
+  var res = [];
+
+  // start at the end (innermost) first
+  while (len--) {
+    var inner = parts[i++];
+    if (inner === '^[!' || inner === '[!') {
+      inner = '';
+      negated = true;
+    }
+
+    var prefix = negated ? '^' : '';
+    var ch = POSIX[inner];
+
+    if (ch) {
+      res.push('[' + prefix + ch + ']');
+    } else if (inner) {
+      if (/^\[?\w-\w\]?$/.test(inner)) {
+        if (i === parts.length) {
+          res.push('[' + prefix + inner);
+        } else if (i === 1) {
+          res.push(prefix + inner + ']');
+        } else {
+          res.push(prefix + inner);
+        }
+      } else {
+        if (i === 1) {
+          beg += inner;
+        } else if (i === parts.length) {
+          end += inner;
+        } else {
+          res.push('[' + prefix + inner + ']');
+        }
+      }
+    }
+  }
+
+  var result = res.join('|');
+  var rlen = res.length || 1;
+  if (rlen &gt; 1) {
+    result = '(?:' + result + ')';
+    rlen = 1;
+  }
+  if (beg) {
+    rlen++;
+    if (beg.charAt(0) === '[') {
+      if (imbalanced) {
+        beg = '\\[' + beg.slice(1);
+      } else {
+        beg += ']';
+      }
+    }
+    result = beg + result;
+  }
+  if (end) {
+    rlen++;
+    if (end.slice(-1) === ']') {
+      if (imbalanced) {
+        end = end.slice(0, end.length - 1) + '\\]';
+      } else {
+        end = '[' + end;
+      }
+    }
+    result += end;
+  }
+
+  if (rlen &gt; 1) {
+    result = result.split('][').join(']|[');
+    if (result.indexOf('|') !== -1 &amp;&amp; !/\(\?/.test(result)) {
+      result = '(?:' + result + ')';
+    }
+  }
+
+  result = result.replace(/\[+=|=\]+/g, '\\b');
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  glob.extglob();
+}
+glob.track('after extglob');
+
+// expand brackets, e.g `[[:alpha:]]`
+glob.track('before brackets');
+if (tok.is.brackets) {
+  glob.<span class="apidocCodeKeywordSpan">brackets</span>();
+}
+glob.track('after brackets');
+
+// special patterns
+glob._replace('[!', '[^');
+glob._replace('(?', '(%~');
+glob._replace(/\[\]/, '\\[\\]');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.cache" id="apidoc.element.micromatch.utils.cache">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>cache
+        <span class="apidocSignatureSpan">(fn, str, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function regexCache(fn, str, opts) {
+  var key = '_default_', regex, cached;
+
+  if (!str &amp;&amp; !opts) {
+    if (typeof fn !== 'function') {
+      return fn;
+    }
+    return basic[key] || (basic[key] = fn(str));
+  }
+
+  var isString = typeof str === 'string';
+  if (isString) {
+    if (!opts) {
+      return basic[str] || (basic[str] = fn(str));
+    }
+    key = str;
+  } else {
+    opts = str;
+  }
+
+  cached = cache[key];
+  if (cached &amp;&amp; equal(cached.opts, opts)) {
+    return cached.regex;
+  }
+
+  memo(key, opts, (regex = fn(str, opts)));
+  return regex;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @return {RegExp}
+*/
+
+function makeRe(glob, opts) {
+ if (utils.typeOf(glob) !== 'string') {
+   throw new Error(msg('makeRe', 'glob', 'a string'));
+ }
+ return utils.<span class="apidocCodeKeywordSpan">cache</span>(toRegex, glob, opts);
+}
+
+/**
+* Make error messages consistent. Follows this format:
+*
+* ```js
+* msg(methodName, argNumber, nativeType);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.diff" id="apidoc.element.micromatch.utils.diff">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>diff
+        <span class="apidocSignatureSpan">(arr, arrays)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function diff(arr, arrays) {
+  var argsLen = arguments.length;
+  var len = arr.length, i = -1;
+  var res = [], arrays;
+
+  if (argsLen === 1) {
+    return arr;
+  }
+
+  if (argsLen &gt; 2) {
+    arrays = flatten(slice.call(arguments, 1));
+  }
+
+  while (++i &lt; len) {
+    if (!~arrays.indexOf(arr[i])) {
+      res.push(arr[i]);
+    }
+  }
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   var glob = patterns[i++];
+   if (typeof glob === 'string' &amp;&amp; glob.charCodeAt(0) === 33 /* ! */) {
+     omit.push.apply(omit, match(files, glob.slice(1), opts));
+   } else {
+     keep.push.apply(keep, match(files, glob, opts));
+   }
+ }
+ return utils.<span class="apidocCodeKeywordSpan">diff</span>(keep, omit);
+}
+
+/**
+* Return an array of files that match the given glob pattern.
+*
+* This function is called by the main `micromatch` function If you only
+* need to pass a single pattern you might get very minor speed improvements
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.escapePath" id="apidoc.element.micromatch.utils.escapePath">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>escapePath
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function escapePath(fp) {
+  return fp.replace(/[\\.]/g, '\\$&amp;');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.escapeRe" id="apidoc.element.micromatch.utils.escapeRe">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>escapeRe
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function escapeRe(str) {
+  return str.replace(/[-[\\$*+?.#^\s{}(|)\]]/g, '\\$&amp;');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.extglob" id="apidoc.element.micromatch.utils.extglob">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>extglob
+        <span class="apidocSignatureSpan">(str, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extglob(str, opts) {
+  opts = opts || {};
+  var o = {}, i = 0;
+
+  // fix common character reversals
+  // '*!(.js)' =&gt; '*.!(js)'
+  str = str.replace(/!\(([^\w*()])/g, '$1!(');
+
+  // support file extension negation
+  str = str.replace(/([*\/])\.!\([*]\)/g, function (m, ch) {
+    if (ch === '/') {
+      return escape('\\/[^.]+');
+    }
+    return escape('[^.]+');
+  });
+
+  // create a unique key for caching by
+  // combining the string and options
+  var key = str
+    + String(!!opts.regex)
+    + String(!!opts.contains)
+    + String(!!opts.escape);
+
+  if (cache.hasOwnProperty(key)) {
+    return cache[key];
+  }
+
+  if (!(re instanceof RegExp)) {
+    re = regex();
+  }
+
+  opts.negate = false;
+  var m;
+
+  while (m = re.exec(str)) {
+    var prefix = m[1];
+    var inner = m[3];
+    if (prefix === '!') {
+      opts.negate = true;
+    }
+
+    var id = '__EXTGLOB_' + (i++) + '__';
+    // use the prefix of the _last_ (outtermost) pattern
+    o[id] = wrap(inner, prefix, opts.escape);
+    str = str.split(m[0]).join(id);
+  }
+
+  var keys = Object.keys(o);
+  var len = keys.length;
+
+  // we have to loop again to allow us to convert
+  // patterns in reverse order (starting with the
+  // innermost/last pattern first)
+  while (len--) {
+    var prop = keys[len];
+    str = str.split(prop).join(o[prop]);
+  }
+
+  var result = opts.regex
+    ? toRegex(str, opts.contains, opts.negate)
+    : str;
+
+  result = result.split('.').join('\\.');
+
+  // cache the result and return it
+  return (cache[key] = result);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  glob.braces();
+}
+glob.track('after braces');
+
+// expand extglobs, e.g `foo/!(a|b)`
+glob.track('before extglob');
+if (tok.is.extglob) {
+  glob.<span class="apidocCodeKeywordSpan">extglob</span>();
+}
+glob.track('after extglob');
+
+// expand brackets, e.g `[[:alpha:]]`
+glob.track('before brackets');
+if (tok.is.brackets) {
+  glob.brackets();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.filename" id="apidoc.element.micromatch.utils.filename">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>filename
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filename(fp) {
+  var seg = fp.match(fileRe());
+  return seg &amp;&amp; seg[0];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param {RegExp} `re`
+* @return {Boolean}
+*/
+
+utils.hasFilename = function hasFilename(re) {
+ return function(fp) {
+   var name = utils.<span class="apidocCodeKeywordSpan">filename</span>(fp);
+   return name &amp;&amp; re.test(name);
+ };
+};
+
+/**
+* Coerce `val` to an array
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.hasFilename" id="apidoc.element.micromatch.utils.hasFilename">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>hasFilename
+        <span class="apidocSignatureSpan">(re)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hasFilename(re) {
+  return function(fp) {
+    var name = utils.filename(fp);
+    return name &amp;&amp; re.test(name);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return utils.matchPath(pattern, opts);
+  }
+  // pattern is a glob string
+  var re = makeRe(pattern, opts);
+
+  // `matchBase` is defined
+  if (opts &amp;&amp; opts.matchBase) {
+    return utils.<span class="apidocCodeKeywordSpan">hasFilename</span>(re, opts);
+  }
+  // `matchBase` is not defined
+  return function(fp) {
+    fp = utils.unixify(fp, opts);
+    return re.test(fp);
+  };
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.hasPath" id="apidoc.element.micromatch.utils.hasPath">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>hasPath
+        <span class="apidocSignatureSpan">(pattern, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hasPath(pattern, opts) {
+  return function(fp) {
+    return utils.unixify(pattern, opts).indexOf(fp) !== -1;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param {String} `pattern`
+* @return {Function}
+*/
+
+utils.matchPath = function matchPath(pattern, opts) {
+ var fn = (opts &amp;&amp; opts.contains)
+   ? utils.<span class="apidocCodeKeywordSpan">hasPath</span>(pattern, opts)
+   : utils.isPath(pattern, opts);
+ return fn;
+};
+
+/**
+* Returns a function that returns true if the given
+* regex matches the `filename` of a file path.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.isExtglob" id="apidoc.element.micromatch.utils.isExtglob">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>isExtglob
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isExtglob(str) {
+  return typeof str === 'string'
+    &amp;&amp; /[@?!+*]\(/.test(str);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* Expand bracket expressions in `glob.pattern`
+*/
+
+Glob.prototype.extglob = function() {
+ if (this.options.noextglob === true) return;
+
+ if (utils.<span class="apidocCodeKeywordSpan">isExtglob</span>(this.pattern)) {
+   this.pattern = utils.extglob(this.pattern, {escape: true});
+ }
+};
+
+/**
+* Parse the given pattern
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.isGlob" id="apidoc.element.micromatch.utils.isGlob">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>isGlob
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isGlob(str) {
+  return typeof str === 'string'
+    &amp;&amp; (/[*!?{}(|)[\]]/.test(str)
+     || isExtglob(str));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   throw new TypeError(msg('contains', 'pattern', 'a string'));
+ }
+
+ opts = opts || {};
+ opts.contains = (pattern !== '');
+ fp = utils.unixify(fp, opts);
+
+ if (opts.contains &amp;&amp; !utils.<span class="apidocCodeKeywordSpan">isGlob</span>(pattern)) {
+   return fp.indexOf(pattern) !== -1;
+ }
+ return matcher(pattern, opts)(fp);
+}
+
+/**
+* Returns true if a file path matches any of the
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.isPath" id="apidoc.element.micromatch.utils.isPath">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>isPath
+        <span class="apidocSignatureSpan">(pattern, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isPath(pattern, opts) {
+  opts = opts || {};
+  return function(fp) {
+    var unixified = utils.unixify(fp, opts);
+    if(opts.nocase){
+      return pattern.toLowerCase() === unixified.toLowerCase();
+    }
+    return pattern === unixified;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param {String} `pattern`
+* @return {Function}
+*/
+
+utils.matchPath = function matchPath(pattern, opts) {
+ var fn = (opts &amp;&amp; opts.contains)
+   ? utils.hasPath(pattern, opts)
+   : utils.<span class="apidocCodeKeywordSpan">isPath</span>(pattern, opts);
+ return fn;
+};
+
+/**
+* Returns a function that returns true if the given
+* regex matches the `filename` of a file path.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.matchPath" id="apidoc.element.micromatch.utils.matchPath">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>matchPath
+        <span class="apidocSignatureSpan">(pattern, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function matchPath(pattern, opts) {
+  var fn = (opts &amp;&amp; opts.contains)
+    ? utils.hasPath(pattern, opts)
+    : utils.isPath(pattern, opts);
+  return fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+// strings, all the way down...
+pattern = utils.unixify(pattern, opts);
+
+// pattern is a non-glob string
+if (!utils.isGlob(pattern)) {
+  return utils.<span class="apidocCodeKeywordSpan">matchPath</span>(pattern, opts);
+}
+// pattern is a glob string
+var re = makeRe(pattern, opts);
+
+// `matchBase` is defined
+if (opts &amp;&amp; opts.matchBase) {
+  return utils.hasFilename(re, opts);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.normalize" id="apidoc.element.micromatch.utils.normalize">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>normalize
+        <span class="apidocSignatureSpan">(str, stripTrailing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function normalizePath(str, stripTrailing) {
+  if (typeof str !== 'string') {
+    throw new TypeError('expected a string');
+  }
+  str = str.replace(/[\\\/]+/g, '/');
+  if (stripTrailing !== false) {
+    str = removeTrailingSeparator(str);
+  }
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Normalize all slashes in a file path or glob pattern to
+ * forward slashes.
+ */
+
+utils.unixify = function unixify(fp, opts) {
+  if (opts &amp;&amp; opts.unixify === false) return fp;
+  if (opts &amp;&amp; opts.unixify === true || win32 || path.sep === '\\') {
+    return utils.<span class="apidocCodeKeywordSpan">normalize</span>(fp, false);
+  }
+  if (opts &amp;&amp; opts.unescape === true) {
+    return fp ? fp.toString().replace(/\\(\w)/g, '$1') : '';
+  }
+  return fp;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.omit" id="apidoc.element.micromatch.utils.omit">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>omit
+        <span class="apidocSignatureSpan">(obj, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function omit(obj, keys) {
+  if (!isObject(obj)) return {};
+
+  keys = [].concat.apply([], [].slice.call(arguments, 1));
+  var last = keys[keys.length - 1];
+  var res = {}, fn;
+
+  if (typeof last === 'function') {
+    fn = keys.pop();
+  }
+
+  var isFunction = typeof fn === 'function';
+  if (!keys.length &amp;&amp; !isFunction) {
+    return obj;
+  }
+
+  forOwn(obj, function(value, key) {
+    if (keys.indexOf(key) === -1) {
+
+      if (!isFunction) {
+        res[key] = value;
+      } else if (fn(value, key, obj)) {
+        res[key] = value;
+      }
+    }
+  });
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// if `negate` was defined, diff negated files
+if (negate) { res = utils.diff(files, res); }
+
+// if `ignore` was defined, diff ignored filed
+if (opts.ignore &amp;&amp; opts.ignore.length) {
+  pattern = opts.ignore;
+  opts = utils.<span class="apidocCodeKeywordSpan">omit</span>(opts, ['ignore']);
+  res = utils.diff(res, micromatch(res, pattern, opts));
+}
+
+if (opts.nodupes) {
+  return utils.unique(res);
+}
+return res;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.parseGlob" id="apidoc.element.micromatch.utils.parseGlob">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>parseGlob
+        <span class="apidocSignatureSpan">(glob)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseGlob(glob) {
+  if (cache.hasOwnProperty(glob)) {
+    return cache[glob];
+  }
+
+  var tok = {};
+  tok.orig = glob;
+  tok.is = {};
+
+  // unescape dots and slashes in braces/brackets
+  glob = escape(glob);
+
+  var parsed = findBase(glob);
+  tok.is.glob = parsed.isGlob;
+
+  tok.glob = parsed.glob;
+  tok.base = parsed.base;
+  var segs = /([^\/]*)$/.exec(glob);
+
+  tok.path = {};
+  tok.path.dirname = '';
+  tok.path.basename = segs[1] || '';
+  tok.path.dirname = glob.split(tok.path.basename).join('') || '';
+  var basename = (tok.path.basename || '').split('.') || '';
+  tok.path.filename = basename[0] || '';
+  tok.path.extname = basename.slice(1).join('.') || '';
+  tok.path.ext = '';
+
+  if (isGlob(tok.path.dirname) &amp;&amp; !tok.path.basename) {
+    if (!/\/$/.test(tok.glob)) {
+      tok.path.basename = tok.glob;
+    }
+    tok.path.dirname = tok.base;
+  }
+
+  if (glob.indexOf('/') === -1 &amp;&amp; !tok.is.globstar) {
+    tok.path.dirname = '';
+    tok.path.basename = tok.orig;
+  }
+
+  var dot = tok.path.basename.indexOf('.');
+  if (dot !== -1) {
+    tok.path.filename = tok.path.basename.slice(0, dot);
+    tok.path.extname = tok.path.basename.slice(dot);
+  }
+
+  if (tok.path.extname.charAt(0) === '.') {
+    var exts = tok.path.extname.split('.');
+    tok.path.ext = exts[exts.length - 1];
+  }
+
+  // unescape dots and slashes in braces/brackets
+  tok.glob = unescape(tok.glob);
+  tok.path.dirname = unescape(tok.path.dirname);
+  tok.path.basename = unescape(tok.path.basename);
+  tok.path.filename = unescape(tok.path.filename);
+  tok.path.extname = unescape(tok.path.extname);
+
+  // Booleans
+  var is = (glob &amp;&amp; tok.is.glob);
+  tok.is.negated  = glob &amp;&amp; glob.charAt(0) === '!';
+  tok.is.extglob  = glob &amp;&amp; extglob(glob);
+  tok.is.braces   = has(is, glob, '{');
+  tok.is.brackets = has(is, glob, '[:');
+  tok.is.globstar = has(is, glob, '**');
+  tok.is.dotfile  = dotfile(tok.path.basename) || dotfile(tok.path.filename);
+  tok.is.dotdir   = dotdir(tok.path.dirname);
+  return (cache[glob] = tok);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+* Parse the given pattern
+*/
+
+Glob.prototype.parse = function(pattern) {
+ this.tokens = utils.<span class="apidocCodeKeywordSpan">parseGlob</span>(pattern || this.pattern, true);
+ return this.tokens;
+};
+
+/**
+* Replace `a` with `b`. Also tracks the change before and
+* after each replacement. This is disabled by default, but
+* can be enabled by setting `options.track` to true.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.typeOf" id="apidoc.element.micromatch.utils.typeOf">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>typeOf
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function kindOf(val) {
+  // primitivies
+  if (typeof val === 'undefined') {
+    return 'undefined';
+  }
+  if (val === null) {
+    return 'null';
+  }
+  if (val === true || val === false || val instanceof Boolean) {
+    return 'boolean';
+  }
+  if (typeof val === 'string' || val instanceof String) {
+    return 'string';
+  }
+  if (typeof val === 'number' || val instanceof Number) {
+    return 'number';
+  }
+
+  // functions
+  if (typeof val === 'function' || val instanceof Function) {
+    return 'function';
+  }
+
+  // array
+  if (typeof Array.isArray !== 'undefined' &amp;&amp; Array.isArray(val)) {
+    return 'array';
+  }
+
+  // check for instances of RegExp and Date before calling `toString`
+  if (val instanceof RegExp) {
+    return 'regexp';
+  }
+  if (val instanceof Date) {
+    return 'date';
+  }
+
+  // other objects
+  var type = toString.call(val);
+
+  if (type === '[object RegExp]') {
+    return 'regexp';
+  }
+  if (type === '[object Date]') {
+    return 'date';
+  }
+  if (type === '[object Arguments]') {
+    return 'arguments';
+  }
+  if (type === '[object Error]') {
+    return 'error';
+  }
+
+  // buffer
+  if (typeof Buffer !== 'undefined' &amp;&amp; isBuffer(val)) {
+    return 'buffer';
+  }
+
+  // es6: Map, WeakMap, Set, WeakSet
+  if (type === '[object Set]') {
+    return 'set';
+  }
+  if (type === '[object WeakSet]') {
+    return 'weakset';
+  }
+  if (type === '[object Map]') {
+    return 'map';
+  }
+  if (type === '[object WeakMap]') {
+    return 'weakmap';
+  }
+  if (type === '[object Symbol]') {
+    return 'symbol';
+  }
+
+  // typed arrays
+  if (type === '[object Int8Array]') {
+    return 'int8array';
+  }
+  if (type === '[object Uint8Array]') {
+    return 'uint8array';
+  }
+  if (type === '[object Uint8ClampedArray]') {
+    return 'uint8clampedarray';
+  }
+  if (type === '[object Int16Array]') {
+    return 'int16array';
+  }
+  if (type === '[object Uint16Array]') {
+    return 'uint16array';
+  }
+  if (type === '[object Int32Array]') {
+    return 'int32array';
+  }
+  if (type === '[object Uint32Array]') {
+    return 'uint32array';
+  }
+  if (type === '[object Float32Array]') {
+    return 'float32array';
+  }
+  if (type === '[object Float64Array]') {
+    return 'float64array';
+  }
+
+  // must be a plain object
+  return 'object';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param  {Array} `files`
+ * @param  {String} `pattern`
+ * @param  {Object} `options`
+ * @return {Array}
+ */
+
+function match(files, pattern, opts) {
+if (utils.<span class="apidocCodeKeywordSpan">typeOf</span>(files) !== 'string' &amp;&amp; !Array.isArray(files)) {
+  throw new Error(msg('match', 'files', 'a string or array'));
+}
+
+files = utils.arrayify(files);
+opts = opts || {};
+
+var negate = opts.negate || false;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.unescapeGlob" id="apidoc.element.micromatch.utils.unescapeGlob">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>unescapeGlob
+        <span class="apidocSignatureSpan">(fp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unescapeGlob(fp) {
+  return fp.replace(/[\\"']/g, '');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (res.length === 0) {
+  if (opts.failglob === true) {
+    throw new Error('micromatch.match() found no matches for: "' + orig + '".');
+  }
+
+  if (opts.nonull || opts.nullglob) {
+    res.push(utils.<span class="apidocCodeKeywordSpan">unescapeGlob</span>(orig));
+  }
+}
+
+// if `negate` was defined, diff negated files
+if (negate) { res = utils.diff(files, res); }
+
+// if `ignore` was defined, diff ignored filed
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.unique" id="apidoc.element.micromatch.utils.unique">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>unique
+        <span class="apidocSignatureSpan">(arr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unique(arr) {
+  if (!Array.isArray(arr)) {
+    throw new TypeError('array-unique expects an array.');
+  }
+
+  var len = arr.length;
+  var i = -1;
+
+  while (i++ &lt; len) {
+    var j = i + 1;
+
+    for (; j &lt; arr.length; ++j) {
+      if (arr[i] === arr[j]) {
+        arr.splice(j--, 1);
+      }
+    }
+  }
+  return arr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if (opts.ignore &amp;&amp; opts.ignore.length) {
+   pattern = opts.ignore;
+   opts = utils.omit(opts, ['ignore']);
+   res = utils.diff(res, micromatch(res, pattern, opts));
+ }
+
+ if (opts.nodupes) {
+   return utils.<span class="apidocCodeKeywordSpan">unique</span>(res);
+ }
+ return res;
+}
+
+/**
+* Returns a function that takes a glob pattern or array of glob patterns
+* to be used with `Array#filter()`. (Internally this function generates
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.utils.unixify" id="apidoc.element.micromatch.utils.unixify">
+        function <span class="apidocSignatureSpan">micromatch.utils.</span>unixify
+        <span class="apidocSignatureSpan">(fp, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unixify(fp, opts) {
+  if (opts &amp;&amp; opts.unixify === false) return fp;
+  if (opts &amp;&amp; opts.unixify === true || win32 || path.sep === '\\') {
+    return utils.normalize(fp, false);
+  }
+  if (opts &amp;&amp; opts.unescape === true) {
+    return fp ? fp.toString().replace(/\\(\w)/g, '$1') : '';
+  }
+  return fp;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var _isMatch = matcher(pattern, opts);
+var len = files.length, i = 0;
+var res = [];
+
+while (i &lt; len) {
+  var file = files[i++];
+  var fp = utils.<span class="apidocCodeKeywordSpan">unixify</span>(file, opts);
+
+  if (!_isMatch(fp)) { continue; }
+  res.push(fp);
+}
+
+if (res.length === 0) {
+  if (opts.failglob === true) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
