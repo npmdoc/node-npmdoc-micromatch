@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"micromatch",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "micromatch",
+    "description": "api documentation for [micromatch (v2.3.11)](https://github.com/jonschlinkert/micromatch) [![npm package](https://img.shields.io/npm/v/npmdoc-micromatch.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-micromatch) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-micromatch.svg)](https://travis-ci.org/npmdoc/node-npmdoc-micromatch)",
     "devDependencies": {
-        "micromatch": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "micromatch": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-micromatch",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-micromatch",
+    "keywords": [
+        "documentation",
+        "micromatch"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_micromatch.js",
+    "name": "npmdoc-micromatch",
+    "nameAlias": "npmdoc_micromatch",
+    "nameOriginal": "npmdoc-micromatch",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-micromatch"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
