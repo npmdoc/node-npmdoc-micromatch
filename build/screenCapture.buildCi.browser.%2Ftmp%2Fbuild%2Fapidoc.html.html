@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.micromatch.micromatch">
+            function <span class="apidocSignatureSpan"></span>micromatch
+            <span class="apidocSignatureSpan">(files, patterns, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.micromatch.any">
             function <span class="apidocSignatureSpan">micromatch.</span>any
             <span class="apidocSignatureSpan">(fp, patterns, opts)</span>
@@ -489,6 +498,43 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.micromatch" id="apidoc.module.micromatch">module micromatch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.micromatch.micromatch" id="apidoc.element.micromatch.micromatch">
+        function <span class="apidocSignatureSpan"></span>micromatch
+        <span class="apidocSignatureSpan">(files, patterns, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function micromatch(files, patterns, opts) {
+  if (!files || !patterns) return [];
+  opts = opts || {};
+
+  if (typeof opts.cache === 'undefined') {
+    opts.cache = true;
+  }
+
+  if (!Array.isArray(patterns)) {
+    return match(files, patterns, opts);
+  }
+
+  var len = patterns.length, i = 0;
+  var omit = [], keep = [];
+
+  while (len--) {
+    var glob = patterns[i++];
+    if (typeof glob === 'string' &amp;&amp; glob.charCodeAt(0) === 33 /* ! */) {
+      omit.push.apply(omit, match(files, glob.slice(1), opts));
+    } else {
+      keep.push.apply(keep, match(files, glob, opts));
+    }
+  }
+  return utils.diff(keep, omit);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>

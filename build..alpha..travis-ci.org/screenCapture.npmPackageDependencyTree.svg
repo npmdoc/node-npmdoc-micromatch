@@ -1,41 +1,43 @@
-<svg height="606" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="606" fill="#555" width="720"></rect>
+<svg height="638" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="638" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">1 megabytes</tspan>
-<tspan x="10" y="42">└─┬ micromatch@2.3.11 </tspan>
-<tspan x="10" y="58">  ├─┬ arr-diff@2.0.0 </tspan>
-<tspan x="10" y="74">  │ └── arr-flatten@1.0.1 </tspan>
-<tspan x="10" y="90">  ├── array-unique@0.2.1 </tspan>
-<tspan x="10" y="106">  ├─┬ braces@1.8.5 </tspan>
-<tspan x="10" y="122">  │ ├─┬ expand-range@1.8.2 </tspan>
-<tspan x="10" y="138">  │ │ └─┬ fill-range@2.2.3 </tspan>
-<tspan x="10" y="154">  │ │   ├── is-number@2.1.0 </tspan>
-<tspan x="10" y="170">  │ │   ├─┬ isobject@2.1.0 </tspan>
-<tspan x="10" y="186">  │ │   │ └── isarray@1.0.0 </tspan>
-<tspan x="10" y="202">  │ │   ├── randomatic@1.1.6 </tspan>
-<tspan x="10" y="218">  │ │   └── repeat-string@1.6.1 </tspan>
-<tspan x="10" y="234">  │ ├── preserve@0.2.0 </tspan>
-<tspan x="10" y="250">  │ └── repeat-element@1.1.2 </tspan>
-<tspan x="10" y="266">  ├─┬ expand-brackets@0.1.5 </tspan>
-<tspan x="10" y="282">  │ └── is-posix-bracket@0.1.1 </tspan>
-<tspan x="10" y="298">  ├── extglob@0.3.2 </tspan>
-<tspan x="10" y="314">  ├── filename-regex@2.0.0 </tspan>
-<tspan x="10" y="330">  ├── is-extglob@1.0.0 </tspan>
-<tspan x="10" y="346">  ├── is-glob@2.0.1 </tspan>
-<tspan x="10" y="362">  ├─┬ kind-of@3.1.0 </tspan>
-<tspan x="10" y="378">  │ └── is-buffer@1.1.5 </tspan>
-<tspan x="10" y="394">  ├─┬ normalize-path@2.1.1 </tspan>
-<tspan x="10" y="410">  │ └── remove-trailing-separator@1.0.1 </tspan>
-<tspan x="10" y="426">  ├─┬ object.omit@2.0.1 </tspan>
-<tspan x="10" y="442">  │ ├─┬ for-own@0.1.5 </tspan>
-<tspan x="10" y="458">  │ │ └── for-in@1.0.2 </tspan>
-<tspan x="10" y="474">  │ └── is-extendable@0.1.1 </tspan>
-<tspan x="10" y="490">  ├─┬ parse-glob@3.0.4 </tspan>
-<tspan x="10" y="506">  │ ├─┬ glob-base@0.3.0 </tspan>
-<tspan x="10" y="522">  │ │ └── glob-parent@2.0.0 </tspan>
-<tspan x="10" y="538">  │ └── is-dotfile@1.0.2 </tspan>
-<tspan x="10" y="554">  └─┬ regex-cache@0.4.3 </tspan>
-<tspan x="10" y="570">    ├── is-equal-shallow@0.1.3 </tspan>
-<tspan x="10" y="586">    └── is-primitive@2.0.0</tspan>
+<tspan x="10" y="26">1 megabytes installed</tspan>
+<tspan x="10" y="42"></tspan>
+<tspan x="10" y="58">node_modules</tspan>
+<tspan x="10" y="74">└─┬ micromatch@2.3.11 </tspan>
+<tspan x="10" y="90">  ├─┬ arr-diff@2.0.0 </tspan>
+<tspan x="10" y="106">  │ └── arr-flatten@1.0.3 </tspan>
+<tspan x="10" y="122">  ├── array-unique@0.2.1 </tspan>
+<tspan x="10" y="138">  ├─┬ braces@1.8.5 </tspan>
+<tspan x="10" y="154">  │ ├─┬ expand-range@1.8.2 </tspan>
+<tspan x="10" y="170">  │ │ └─┬ fill-range@2.2.3 </tspan>
+<tspan x="10" y="186">  │ │   ├── is-number@2.1.0 </tspan>
+<tspan x="10" y="202">  │ │   ├─┬ isobject@2.1.0 </tspan>
+<tspan x="10" y="218">  │ │   │ └── isarray@1.0.0 </tspan>
+<tspan x="10" y="234">  │ │   ├── randomatic@1.1.6 </tspan>
+<tspan x="10" y="250">  │ │   └── repeat-string@1.6.1 </tspan>
+<tspan x="10" y="266">  │ ├── preserve@0.2.0 </tspan>
+<tspan x="10" y="282">  │ └── repeat-element@1.1.2 </tspan>
+<tspan x="10" y="298">  ├─┬ expand-brackets@0.1.5 </tspan>
+<tspan x="10" y="314">  │ └── is-posix-bracket@0.1.1 </tspan>
+<tspan x="10" y="330">  ├── extglob@0.3.2 </tspan>
+<tspan x="10" y="346">  ├── filename-regex@2.0.0 </tspan>
+<tspan x="10" y="362">  ├── is-extglob@1.0.0 </tspan>
+<tspan x="10" y="378">  ├── is-glob@2.0.1 </tspan>
+<tspan x="10" y="394">  ├─┬ kind-of@3.1.0 </tspan>
+<tspan x="10" y="410">  │ └── is-buffer@1.1.5 </tspan>
+<tspan x="10" y="426">  ├─┬ normalize-path@2.1.1 </tspan>
+<tspan x="10" y="442">  │ └── remove-trailing-separator@1.0.1 </tspan>
+<tspan x="10" y="458">  ├─┬ object.omit@2.0.1 </tspan>
+<tspan x="10" y="474">  │ ├─┬ for-own@0.1.5 </tspan>
+<tspan x="10" y="490">  │ │ └── for-in@1.0.2 </tspan>
+<tspan x="10" y="506">  │ └── is-extendable@0.1.1 </tspan>
+<tspan x="10" y="522">  ├─┬ parse-glob@3.0.4 </tspan>
+<tspan x="10" y="538">  │ ├─┬ glob-base@0.3.0 </tspan>
+<tspan x="10" y="554">  │ │ └── glob-parent@2.0.0 </tspan>
+<tspan x="10" y="570">  │ └── is-dotfile@1.0.2 </tspan>
+<tspan x="10" y="586">  └─┬ regex-cache@0.4.3 </tspan>
+<tspan x="10" y="602">    ├── is-equal-shallow@0.1.3 </tspan>
+<tspan x="10" y="618">    └── is-primitive@2.0.0</tspan>
 </text>
 </svg>
